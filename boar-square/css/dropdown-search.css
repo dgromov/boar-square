@@ -1,0 +1,128 @@
+input[type=checkbox] {
+	visibility: hidden;
+}
+
+.sb_wrapper{
+	margin:0;
+	padding:10px;
+	top:80px;
+	left:40px;
+	width:70%;
+
+}
+.sb_wrapper input[type="text"],
+ul.sb_dropdown{
+	border:1px solid #fff;
+	background: #fafafa; 
+	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#fafafa)); 
+	background: -moz-linear-gradient(top, #f2f2f2, #fafafa);
+	font-size:14px;
+	font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
+	-moz-box-shadow:1px 1px 3px #555;
+	-webkit-box-shadow:1px 1px 3px #555;
+	-box-shadow:1px 1px 3px #555;
+	outline:none;
+	
+	text-shadow:1px 1px 1px #fff;
+	width:70%;
+	float:left;
+
+	height:40px;
+}
+ul.sb_dropdown{
+	float:left;
+	list-style:none;
+	width:97.5%;
+	height:280px;
+	-moz-border-radius:0px 0px 10px 10px;
+	-webkit-border-bottom-right-radius:10px;
+	-webkit-border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+	border-bottom-left-radius:10px;
+}
+ul.sb_dropdown li{
+	font-size:14px;
+	line-height:32px;
+	height:35px;
+	float:left;
+	width:70%;
+	padding:1px;
+	
+
+}
+li{
+background-color:#C4C3BC;
+padding:15px;
+}
+li:hover
+{
+background-color:#428bca;
+} 
+
+li input[type="checkbox"]{
+	background-color:#00AEEF;
+	}
+ul.sb_dropdown li input[id="Trending"]{
+	float:left;
+}
+ul.sb_dropdown li.sb_filter{
+	width:70%;
+	border:1px solid #f9f9f9;
+	clear:both;
+	background: #ddd;
+	font-size:12px;
+	text-transform:uppercase;
+	letter-spacing:1px;
+	color:#444;
+	height:20px;
+	line-height:16px;
+	padding:0px;
+	margin:0px;
+	-moz-box-shadow:0px 0px 2px #777;
+	-webkit-box-shadow:0px 0px 3px #555 inset;
+	-box-shadow:0px 0px 3px #555 inset;
+
+}
+span.sb_up,
+span.sb_down{
+	
+	left:0px;
+	width:14px;
+	height:40px;
+	float:left;
+	background-color:#f2f2f2;
+	background-position:center center;
+	background-repeat: no-repeat;
+	z-index:10;
+	border:1px solid #fff;
+	-moz-box-shadow:1px 0px 1px #ddd;
+	-webkit-box-shadow:1px 0px 1px #ddd;
+	-box-shadow:1px 0px 1px #ddd;
+	
+}
+
+
+span.sb_up{
+	background-image:url(../img/icons/up.png);
+}
+span.sb_down{
+	background-image:url(../img/icons/down.png);
+}
+input.sb_search{
+	background:#f2f2f2 url(../img/icons/trending.jpg) no-repeat center center;
+	height:40px;
+	width:50px;
+	float:left;
+	border:none;
+	border:1px solid #fff;
+	-moz-box-shadow:1px 1px 3px #555;
+	-webkit-box-shadow:1px 1px 3px #555;
+	-box-shadow:1px 1px 3px #555;
+	outline:none;
+	cursor:pointer;
+}
+input.sb_search:hover{
+	background-color:#fff;
+}
+
+

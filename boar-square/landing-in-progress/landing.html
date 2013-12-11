@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+  <title>Boar Square</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrapLanding.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/dropdown-search.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="css/jquery.clockpickL.1.2.9.css" type="text/css">
+
+
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+      <![endif]-->
+    </head>
+
+    <body>
+      <div class="container">
+        <div class="hidden">
+          <div class="navbar navbar-inverse navbar-fixed-top" >
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="landing.html">COMS4170</a>
+            </div>
+            <div class="collapse navbar-collapse"></div>
+          </div><!--/.nav-collapse -->
+        </div>
+
+        <br>
+        <br>
+        <center>
+          <div class="jumbotron">
+
+            <h2>Lets make a date!</h2>
+
+            <button class="btn btn-primary btn-lg" id="newDate" type="submit" style="display:inline">Create a new date</button>
+
+            <button class="btn btn-primary btn-lg" id="select-date-file">Select an existing Make My Day date file</button><input type="file" onchange="checkFile()" id="InputFile">
+
+            <div id="loading-date" class="hidden">
+              <div id="selected-file"></div>
+              <button class="btn btn-lg btn-success btn-primary btn-block" id="LoadDate" type="submit">Load My Date!</button>
+            </div>
+
+            <div id="landing-date-planning" class="hidden">
+              <div class="row">
+                <div class="form-inline">
+                  <div class="form-group">
+                    <input type="text" id="location" class="form-control" onchange="check()" placeholder="City / Neighborhood" autofocus>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" id="date-customizing">
+                <div class="col-md-4">
+                  <div class="date-customizer" id="venue-customize-1">
+                    <div class="date-customizer-heading" id="venue-customize-heading-1">
+                      Customize your first stop.
+                    </div>
+                    <div class="date-customizer-interaction" id="venue-customize-interaction-1">
+                      <div class="venue-category-selection" id="venue-category-selection-1">
+                        Venue category:
+                      </div>
+
+                      <div class="venue-name-selection" id="venue-name-selection-1">
+                        <div class="form">
+                          <div class="form-group">
+                            Venue name (totally optional):
+                            <input type="text" id="venue-name-1" class="venue-name-input form-control" placeholder="Name of venue">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="venue-dollars-selection" id="venue-dollars-selection-1">
+                        Dollars:
+                        <div id="category1params">
+                          <input type = "radio" name = "price1"
+                          id = "$1"
+                          value = "1"
+                          checked = "checked" />
+                          <label for = "$1">  $</label>
+
+                          <input type = "radio"
+                          name = "price1"
+                          id = "$$1"
+                          value = "2" />
+                          <label for = "$$1">  $$</label>
+
+                          <input type = "radio"
+                          name = "price1"
+                          id = "$$$1"
+                          value = "3" />
+                          <label for = "$$$1">  $$$</label>
+                          <br>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="date-customizer" id="venue-customize-2">
+                    <div class="date-customizer-heading">
+                      Customize your second stop.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="date-customizer" id="venue-customize-3">
+                    <div class="date-customizer-heading">
+                      Customize your third stop.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- All of the optional venues -->
+              <div class="VenueGroup">
+                <div class="row">
+                  <div id="venue1" class="hidden col-sm-1">
+                    <div class="addVenue">
+
+                      <!-- Dropdown Selection -->
+                      <form id="ui_element1" class="sb_wrapper" autofocus>
+                        <p>
+                          <span class="sb_down"></span>
+                          <input class="sb_input" type="text" placeholder="Venue 1" id="venuename1" />
+                          <input class="sb_search" type="image"/>
+                        </p>
+                        <ul class="sb_dropdown" style="display:none;">
+                          <li class="sb_filter">Pick a Category</li>
+
+                          <li><img src="img/icons/food.jpg"> <input type="checkbox" name="Food" value="1" id="Food1" class="filters" /><label for="Food1">Food</label></li>
+                          <li><img src="img/icons/nightlife.jpg"> <input type="checkbox" name="Nightlife" value="1" id="Nightlife1" class="filters" /><label for="Nightlife1">Nightlife</label></li>
+                          <li><img src="img/icons/coffee.jpg"> <input type="checkbox" name="Coffee" value="1" id="Coffee1" class="filters" /><label for="Coffee1">Coffee</label></li>
+                          <li><img src="img/icons/shopping.jpg"> <input type="checkbox" name="Shopping" value="1" id="Shopping1" class="filters" /><label for="Shopping1">Shopping</label></li>
+                          <li><img src="img/icons/arts.jpg"> <input type="checkbox" value="1" name="Museums" id="Museums1" class="filters" /><label for="Museums1">Arts</label></li>
+                          <li><img src="img/icons/outdoors.jpg"> <input type="checkbox" value="1" name="Outdoors" id="Outdoors1" class="filters" /><label for="Outdoors1">Outdoors</label></li>
+                          <li><img src="img/icons/sights.jpg"> <input type="checkbox" value="1" name="Sights" id="Sights1" class="filters" /><label for="Sights1">Sights</label></li>
+                      </ul>
+                    </form>
+                    <center>
+                      <br>
+                      <div id="category1params" class="hidden">
+                        <input type = "radio"
+                        name = "price1"
+                        id = "$1"
+                        value = "1"
+                        checked = "checked" />
+                        <label for = "$1">  $</label>
+
+                        <input type = "radio"
+                        name = "price1"
+                        id = "$$1"
+                        value = "2" />
+                        <label for = "$$1">  $$</label>
+
+                        <input type = "radio"
+                        name = "price1"
+                        id = "$$$1"
+                        value = "3" />
+                        <label for = "$$$1">  $$$</label>
+                        <br>
+                      </div>
+                    </center>
+                  </div>
+                  <br>
+                </div>
+
+
+                <!-- Same as venue1, optional venue2 -->
+
+                <div id="venue2" class="hidden col-sm-2">
+                  <div class="addVenue">
+
+                    <form id="ui_element2" class="sb_wrapper" autofocus>
+                      <p>
+                        <span class="sb_down"></span>
+                        <input class="sb_input" type="text" placeholder="Venue 2" id="venuename2" />
+                        <input class="sb_search" type="submit" value="" />
+                      </p>
+                      <ul class="sb_dropdown filters2" style="display:none;">
+                        <li class="sb_filter filters2">Pick a Category</li>
+                        
+                        <li><img src="img/icons/food.jpg"> <input type="checkbox" name="Food" id="Food2" value="2" class="filters" /><label for="Food2">Food</label></li>
+                        <li><img src="img/icons/nightlife.jpg"> <input type="checkbox" name="Nightlife" value="2" id="Nightlife2" class="filters" /><label for="Nightlife2">Nightlife</label></li>
+                        <li><img src="img/icons/coffee.jpg"> <input type="checkbox" name="Coffee" value="2" id="Coffee2" class="filters" /><label for="Coffee2">Coffee</label></li>
+                        <li><img src="img/icons/shopping.jpg"> <input type="checkbox" name="Shopping" value="2" id="Shopping2" class="filters" /><label for="Shopping2">Shopping</label></li>
+                        <li><img src="img/icons/arts.jpg"> <input type="checkbox" value="2" name="Museums" id="Museums2" class="filters" /><label for="Museums2">Arts</label></li>
+                        <li><img src="img/icons/outdoors.jpg"> <input type="checkbox" value="2" name="Outdoors" id="Outdoors2" class="filters" /><label for="Outdoors2">Outdoors</label></li>
+                        <li><img src="img/icons/sights.jpg"> <input type="checkbox" value="2" name="Sights" id="Sights2" class="filters" /><label for="Sights2">Sights</label></li>
+                    </ul>
+                  </form>
+                  <center>
+                    <br>
+                    <div id="category2params" class="hidden">
+
+
+                      <input type = "radio"
+                      name = "price2"
+                      id = "$2"
+                      value = "1"
+                      checked = "checked" />
+                      <label for = "$2">  $</label>
+
+                      <input type = "radio"
+                      name = "price2"
+                      id = "$$2"
+                      value = "2" />
+                      <label for = "$$2">  $$</label>
+
+                      <input type = "radio"
+                      name = "price2"
+                      id = "$$$2"
+                      value = "3" />
+                      <label for = "$$$2">  $$$</label>
+
+                      <br>
+
+                    </div>
+                  </center>
+                </div>
+                <br>
+              </div>
+
+              <!-- Same as venue1, optional venue3-->
+              <div id="venue3" class="hidden col-lg-2 long-col">
+                <div class="addVenue">
+
+                  <form id="ui_element3" class="sb_wrapper" autofocus>
+                    <p>
+                      <span class="sb_down"></span>
+                      <input class="sb_input" type="text" placeholder="Venue 3" id="venuename3" />
+                      <input class="sb_search" type="submit" value="" />
+                    </p>
+                    <ul class="sb_dropdown filters" style="display:none;">
+                      <li class="sb_filter filters">Pick a Category</li>
+
+                      <li><img src="img/icons/food.jpg"> <input type="checkbox" name="Food" id="Food3" value="3" class="filters" /><label for="Food3">Food</label></li>
+                      <li><img src="img/icons/nightlife.jpg"> <input type="checkbox" name="Nightlife" value="3" id="Nightlife3" class="filters" /><label for="Nightlife3">Nightlife</label></li>
+                      <li><img src="img/icons/coffee.jpg"> <input type="checkbox" name="Coffee" value="3" id="Coffee3" class="filters" /><label for="Coffee3">Coffee</label></li>
+                      <li><img src="img/icons/shopping.jpg"> <input type="checkbox" name="Shopping" value="3" id="Shopping3" class="filters" /><label for="Shopping3">Shopping</label></li>
+                      <li><img src="img/icons/arts.jpg"> <input type="checkbox" value="3" name="Museums" id="Museums3" class="filters" /><label for="Museums3">Arts</label></li>
+                      <li><img src="img/icons/outdoors.jpg"> <input type="checkbox" value="3" name="Outdoors" id="Outdoors3" class="filters" /><label for="Outdoors3">Outdoors</label></li>
+                      <li><img src="img/icons/sights.jpg"> <input type="checkbox" value="3" name="Sights" id="Sights3" class="filters" /><label for="Sights3">Sights</label></li>
+                  </ul>
+                </form>
+                <center>
+                  <br>
+                  <div id="category3params" class="hidden">
+
+
+                    <input type = "radio"
+                    name = "price3"
+                    id = "$3"
+                    value = "1"
+                    checked = "checked" />
+                    <label for = "$3">  $</label>
+
+                    <input type = "radio"
+                    name = "price3"
+                    id = "$$3"
+                    value = "2" />
+                    <label for = "$$3">  $$</label>
+
+                    <input type = "radio"
+                    name = "price3"
+                    id = "$$$3"
+                    value = "3" />
+                    <label for = "$$$3">  $$$</label>
+
+                    <br>
+
+                  </div>
+                </center>
+              </div>
+              <br>
+            </div>
+
+          </div>
+
+        </div>
+
+        <button class="btn btn-danger btn-med" id="addVenueButton"  type="submit">Add Up to <strong><font size=14>3</font></strong> More Date Spots (Optional)</button>
+        <br>
+        <br>
+        <button class="btn btn-lg btn-success btn-primary btn-block" id="goDate" type="submit">Plan My Date!</button>
+        <!-- <button class="btn btn-success btn-large btn-primary btn-block" id="goDate" type="submit" onclick="window.location.href='index.html'">Plan My Date!</button> -->
+        <form id="target">
+        </div>
+        <br>
+      
+        <div id="bottomLogo">
+          <img src="img/poweredBy.jpg">
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>&copy; Boar Square 2013</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.js"><\/script>')</script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/vendor/jquery-1.10.1.js"></script>
+    <script src="js/landing.js"></script>
+    <script src="js/vendor/jquery.clockpick.1.2.9.min.js"></script>
+    <script type="text/javascript">
+
+    function check() {
+      if(document.getElementById('location').value != ""){
+      }
+    }
+
+    function checkFile(ev) {
+        var file = $('#InputFile');
+        $('#selected-file').html(file.val());
+        $('#loading-date').removeClass('hidden');
+        console.log('hello');
+    }
+
+    $(function() {
+        $('#select-date-file').click(function() {
+          $("#landing-date-planning").addClass("hidden");
+          document.getElementById('newDate').disabled=false;
+          $('#InputFile').trigger('click');
+          return false;
+        });
+
+        /**
+        * the element
+        */
+        var $ui1     = $('#ui_element1');
+        var $ui2     = $('#ui_element2');
+        var $ui3     = $('#ui_element3');
+        
+        /**
+        * on focus and on click display the dropdown, 
+        * and change the arrow image
+        */
+        $ui1.find('.sb_input').bind('focus click',function(){
+          $ui1.find('.sb_down')
+          .addClass('sb_up')
+          .removeClass('sb_down')
+          .andSelf()
+          .find('.sb_dropdown')
+          .show();
+
+        });
+
+        $ui2.find('.sb_input').bind('focus click',function(){
+          $ui2.find('.sb_down')
+          .addClass('sb_up')
+          .removeClass('sb_down')
+          .andSelf()
+          .find('.sb_dropdown')
+          .show();
+
+        });
+        
+        $ui3.find('.sb_input').bind('focus click',function(){
+          $ui3.find('.sb_down')
+          .addClass('sb_up')
+          .removeClass('sb_down')
+          .andSelf()
+          .find('.sb_dropdown')
+          .show();
+
+        });
+        /**
+        * on mouse leave hide the dropdown, 
+        * and change the arrow image
+        */
+        $ui1.bind('mouseleave',function(){
+          $ui1.find('.sb_up')
+          .addClass('sb_down')
+          .removeClass('sb_up')
+          .andSelf()
+          .find('.sb_dropdown')
+          .hide();
+        });
+
+        $ui2.bind('mouseleave',function(){
+          $ui2.find('.sb_up')
+          .addClass('sb_down')
+          .removeClass('sb_up')
+          .andSelf()
+          .find('.sb_dropdown')
+          .hide();
+        });
+
+        $ui3.bind('mouseleave',function(){
+          $ui3.find('.sb_up')
+          .addClass('sb_down')
+          .removeClass('sb_up')
+          .andSelf()
+          .find('.sb_dropdown')
+          .hide();
+        });
+        
+        /**
+        * selecting all checkboxes
+        */
+        $ui1.find('.sb_dropdown').find('label[for="all"]').prev().bind('click',function(){
+          $(this).parent().siblings().find(':checkbox').attr('checked',this.checked).attr('disabled',this.checked);
+        });
+
+        $ui2.find('.sb_dropdown').find('label[for="all"]').prev().bind('click',function(){
+          $(this).parent().siblings().find(':checkbox').attr('checked',this.checked).attr('disabled',this.checked);
+        });
+      });
+</script>
+</body>
+</html>
